@@ -1,8 +1,9 @@
+import type { Category } from './category';
 import type { Tag } from './tag';
 
 export interface Memory {
   title: string;
-  category: string;
+  category: Category['name'];
   tags: Tag[];
   visitedAt: string;
   star: number;
