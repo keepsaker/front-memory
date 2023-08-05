@@ -1,20 +1,17 @@
+import './reset.css';
 import './App.css';
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import NavBar from './components/NavBar';
 
 const queryClient = new QueryClient();
 
-function App() {
+const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      hello, world!
+      <h1>hello, world!</h1>
+      <NavBar />
     </QueryClientProvider>
   );
-}
+};
 
 export default App;
