@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
+  root: true,
   extends: [
     "standard-with-typescript",
     "plugin:react/recommended",
@@ -13,7 +14,8 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
-    project: "./tsconfig.json",
+    project: ["./tsconfig.json"],
+    createDefaultProgram: true,
   },
   plugins: ["react", "@typescript-eslint"],
   rules: {
@@ -21,6 +23,8 @@ module.exports = {
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/triple-slash-reference": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/restrict-template-expressions": "off",
   },
   ignorePatterns: [".eslintrc.cjs", "vite.config.ts"],
 };
