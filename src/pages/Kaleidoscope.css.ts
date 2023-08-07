@@ -27,3 +27,16 @@ export const boldText = style({
   fontSize: '26px',
   color: 'black',
 });
+
+export const pageContent = style({
+  display: 'flex',
+  flexDirection: 'column',
+  overflow: 'scroll',
+  padding: '16px',
+});
+
+export const cardHeader = style({
+  display: 'flex',
+  width: '100%',
+  justifyContent: 'space-between',
+});

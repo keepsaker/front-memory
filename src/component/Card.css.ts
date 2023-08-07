@@ -1,12 +1,12 @@
 import { style } from '@vanilla-extract/css';
 
-export const click = style({
+export const card = style({
   position: 'relative',
-  width: '100%',
   height: '180px',
   borderRadius: '4px',
-  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)',
   padding: '16px',
+  marginBottom: '8px',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
@@ -33,16 +33,24 @@ export const description = style({
   color: 'gray',
   margin: 0,
   overflow: 'hidden',
-  textAlign: 'left'
+  display: '-webkit-box',
+  WebkitLineClamp: 3,
+  WebkitBoxOrient: 'vertical',
+  textAlign: 'left',
 });
 
-export const button = style({
-  backgroundColor: 'transparent',
-  border: '1px solid #0070f3',
+export const category = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: 'black',
+  border: '1px solid #333a',
   borderRadius: '4px',
-  color: '#0070f3',
-  cursor: 'pointer',
-  padding: '6px 12px',
+  color: 'white',
+  width: '36px',
+  height: '24px',
+  fontSize: '12px',
+  padding: '0px',
   textAlign: 'center',
 });
 
@@ -66,7 +74,5 @@ export const backgroundImage = style({
   height: '100%',
   top: '0',
   left: '0',
-  opacity: '0.25'
+  opacity: '0.25',
 });
-
-
