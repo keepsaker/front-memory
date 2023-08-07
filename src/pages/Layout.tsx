@@ -2,12 +2,16 @@ import { navBar } from "./Layout.css";
 
 const Layout = ({ children }) => {
   return (
-    <div>
+    <>
       <nav className={navBar}>
-        <div>1,2,3,4</div>
+        <div>1</div>
+        <div>2</div>
+        <div>+</div>
+        <div>3</div>
+        <div>4</div>
       </nav>
       {children}
-    </div>
+    </>
   );
 };
 
