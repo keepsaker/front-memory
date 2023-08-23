@@ -2,7 +2,7 @@ import { ReactNode, createContext, useContext, useState } from 'react';
 
 interface SelectContextProps {
   selected: string;
-  setSelected: (value: string) => void;
+  onSelect: (value: string) => void;
 }
 
 const SelectContext = createContext<SelectContextProps | null>(null);
@@ -10,15 +10,26 @@ const SelectContext = createContext<SelectContextProps | null>(null);
 interface SelectProps {
   children: ReactNode;
   defaultOption: string;
+  onChange: (value: string) => void;
   className?: string;
 }
 
-const Select = ({ children, defaultOption, className }: SelectProps) => {
+const Select = ({
+  children,
+  defaultOption,
+  onChange,
+  className,
+}: SelectProps) => {
   const [selected, setSelected] = useState(defaultOption);
+
+  const handleChange = (value) => {
+    setSelected(value);
+    if (onChange) onChange(value);
+  };
 
   const contextValue: SelectContextProps = {
     selected,
-    setSelected,
+    onSelect: handleChange,
   };
 
   return (
@@ -40,14 +51,14 @@ const Option = ({ value, children, className }: OptionProps) => {
     throw new Error('<Select.Option>은 Select 아래에서만 사용 가능!!');
   }
 
-  const { selected, setSelected } = context;
+  const { selected, onSelect } = context;
   const { selectedTagStyle, tagStyle } = className;
 
   const isSelected = selected === value;
   const optionClassName = `${isSelected ? selectedTagStyle : tagStyle}`;
 
   return (
-    <li onClick={() => setSelected(value)} className={`${optionClassName}`}>
+    <li onClick={() => onSelect(value)} className={`${optionClassName}`}>
       {children}
     </li>
   );

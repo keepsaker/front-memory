@@ -3,11 +3,14 @@ import { style } from '@vanilla-extract/css';
 export const scrollableContainer = style({
   display: 'flex',
   justifyContent: 'stretch',
+  width: '100%',
   overflowX: 'auto',
-  height: '65px',
+  height: '32px',
   padding: '0px 12px',
   zIndex: 1,
   background: 'white',
+  position: 'sticky',
+  top: '0',
   '::-webkit-scrollbar': {
     display: 'none',
   },
