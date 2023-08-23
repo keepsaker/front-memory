@@ -7,7 +7,6 @@ import Kaleidoscope from './pages/Kaleidoscope/Kaleidoscope';
 import Layout from './pages/Layout';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Memory from './pages/Memory/Memory';
-import Main from './component/Main';
 import MemoryMap from './pages/Map/MemoryMap';
 
 const router = createBrowserRouter([
@@ -36,10 +35,6 @@ const router = createBrowserRouter([
         <MemoryMap />
       </Layout>
     ),
-  },
-  {
-    path: '/main',
-    element: <Main />,
   },
 ]);
 
