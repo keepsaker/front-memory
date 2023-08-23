@@ -1,16 +1,22 @@
-import { navBar } from "./Layout.css";
+import { usePageNavigate } from '../hooks/usePageNavigate';
+import { navBar } from './Layout.css';
 
 const Layout = ({ children }) => {
+  const { goToKaleidoscopePage, goToMemoryMapPage } = usePageNavigate();
   return (
     <>
-      <nav className={navBar}>
-        <div>1</div>
-        <div>2</div>
-        <div>+</div>
-        <div>3</div>
-        <div>4</div>
-      </nav>
-      {children}
+      <div
+        style={{ height: '100vh', flexDirection: 'column', display: 'flex' }}
+      >
+        {children}
+        <nav className={navBar}>
+          <div onClick={goToKaleidoscopePage}>주마등</div>
+          <div onClick={goToMemoryMapPage}>지도</div>
+          <div>+</div>
+          <div>달력</div>
+          <div>내정보</div>
+        </nav>
+      </div>
     </>
   );
 };

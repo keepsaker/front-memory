@@ -1,0 +1,51 @@
+import { style } from '@vanilla-extract/css';
+
+export const pageWrapper = style({
+  marginTop: '16px',
+  display: 'flex',
+  flexDirection: 'column',
+  overflowY: 'scroll',
+  height: '100%',
+  backgroundColor: 'white',
+});
+
+export const MemoryPageWrapper = style({
+  marginTop: '16px',
+  display: 'flex',
+  flexDirection: 'column',
+  backgroundColor: 'white',
+});
+
+export const pageTitle = style({
+  fontFamily: 'SF Pro Display',
+  fontSize: '24px',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
+  padding: '0 20px',
+});
+
+export const blurText = style({
+  fontWeight: 'normal',
+  fontSize: '20px',
+  color: 'rgba(0, 0, 0, 0.6)',
+});
+
+export const boldText = style({
+  fontWeight: 'bold',
+  fontSize: '26px',
+  color: 'black',
+});
+
+export const pageContent = style({
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  overflow: 'scroll',
+  padding: '16px',
+});
+
+export const cardHeader = style({
+  display: 'flex',
+  width: '100%',
+  justifyContent: 'space-between',
+});

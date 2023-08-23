@@ -1,7 +1,7 @@
-import { style } from "@vanilla-extract/css";
+import { style } from '@vanilla-extract/css';
 
 export const navBar = style({
-  position: 'fixed',
+  position: 'sticky',
   bottom: 0,
   left: 0,
   width: '100%',
@@ -10,6 +10,5 @@ export const navBar = style({
   display: 'flex',
   justifyContent: 'space-around',
   alignItems: 'center',
-  padding: '10px',
   zIndex: 100,
 });
