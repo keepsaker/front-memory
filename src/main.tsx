@@ -1,24 +1,54 @@
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { StrictMode } from 'react';
+import { StrictMode, Suspense } from 'react';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Kaleidoscope from './pages/kaleidoscope';
+import Kaleidoscope from './pages/Kaleidoscope/Kaleidoscope';
 import Layout from './pages/Layout';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import Memory from './pages/Memory/Memory';
+import Main from './component/Main';
+import MemoryMap from './pages/Map/MemoryMap';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/kaleidoscope',
     element: (
       <Layout>
         <Kaleidoscope />
       </Layout>
     ),
   },
+  {
+    path: '/memory/:id',
+    element: (
+      <Layout>
+        <Suspense fallback={<div>loading...</div>}>
+          <Memory />
+        </Suspense>
+      </Layout>
+    ),
+  },
+  {
+    path: '/map',
+    element: (
+      <Layout>
+        <MemoryMap />
+      </Layout>
+    ),
+  },
+  {
+    path: '/main',
+    element: <Main />,
+  },
 ]);
+
+const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </StrictMode>
 );
