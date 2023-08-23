@@ -4,7 +4,6 @@ import {
   card,
   date,
   heading,
-  button,
   backgroundImage,
   description,
   category,
@@ -77,10 +76,12 @@ interface ImageProps {
 }
 
 const Image = ({ src, alt, type }: ImageProps) => {
-  useCardContext();
+  const context = useCardContext();
+  const { onClick } = context;
 
   return (
     <img
+      onClick={onClick}
       className={`${backgroundImage} ${type ? type : ''}`}
       src={src}
       alt={alt}
